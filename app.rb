@@ -5,6 +5,6 @@ require 'sqlite3'
 
 
 get '/' do
-  erb 'Can you handle a '
+  erb :index
 end
 
