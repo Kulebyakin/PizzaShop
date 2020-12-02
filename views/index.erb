@@ -7,15 +7,15 @@
 
 		<div class="col-md-4">
 			<div class="card" style="width: 18rem;">
-			  <img src="<%= product['path_to_image'] %>" class="card-img-top" alt="<%= product['title'] %>">
+			  <img src="<%= product.path_to_image %>" class="card-img-top" alt="<%= product.title %>">
 			  <div class="card-body row p-3">
 			  	<div class="col pr-0">
-			  		<h5 class="card-text"><%= product['title'] %></h5>
-			  		<p class="card-text text-muted"><%= product['description'] %></p>
+			  		<h5 class="card-text"><%= product.title %></h5>
+			  		<p class="card-text text-muted"><%= product.description %></p>
 			  	</div>
 			  	<div class="col text-right pl-0">
-			  		<h2 class="text-right">₽<%= product['price'].to_i %></h2>
-			  		<button class="btn btn-success btn-sm" onClick="add_to_cart(<%= product['id'] %>)">Add to cart</button>
+			  		<h2 class="text-right">₽<%= product.price.to_i %></h2>
+			  		<button class="btn btn-success btn-sm" onClick="add_to_cart(<%= product.id %>)">Add to cart</button>
 			  	</div>
 			    
 			    
