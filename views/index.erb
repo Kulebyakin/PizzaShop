@@ -15,7 +15,7 @@
 			  	</div>
 			  	<div class="col text-right pl-0">
 			  		<h2 class="text-right">₽<%= product['price'].to_i %></h2>
-			  		<button class="btn btn-success btn-sm">Add to cart</button>
+			  		<button class="btn btn-success btn-sm" onClick="add_to_cart(<%= product['id'] %>)">Add to cart</button>
 			  	</div>
 			    
 			    
