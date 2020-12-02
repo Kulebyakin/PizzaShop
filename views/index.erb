@@ -1,17 +1,24 @@
 <br>
-<div class="container">
+
 	<p class="display-4">Wellcome to Pizza Shop!</p>
 	<br>
 	<div class="row">
 		<% @products.each do |product| %>
 
-		<div class="col">
+		<div class="col-md-4">
 			<div class="card" style="width: 18rem;">
 			  <img src="<%= product['path_to_image'] %>" class="card-img-top" alt="<%= product['title'] %>">
-			  <div class="card-body row">
-			  	<div class="col align-self-center"><h5 class="card-text"><%= product['title'] %></h5></div>
-			  	<div class="col"><h2 class=" text-right">₽<%= product['price'].to_i %></h2></div>
-			    <p class="card-text text-muted pl-3"><%= product['description'] %></p>
+			  <div class="card-body row p-3">
+			  	<div class="col pr-0">
+			  		<h5 class="card-text"><%= product['title'] %></h5>
+			  		<p class="card-text text-muted"><%= product['description'] %></p>
+			  	</div>
+			  	<div class="col text-right pl-0">
+			  		<h2 class="text-right">₽<%= product['price'].to_i %></h2>
+			  		<button class="btn btn-success btn-sm">Add to cart</button>
+			  	</div>
+			    
+			    
 			  </div>
 			</div>
 		</div>
@@ -19,5 +26,5 @@
 		<% end %>
 	</div>
 
-</div>
+
 
