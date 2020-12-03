@@ -21,5 +21,6 @@ get '/about' do
 end
 
 post '/cart' do 
-  erb ':cart'
+  @orders = params[:orders]
+  erb :cart
 end
