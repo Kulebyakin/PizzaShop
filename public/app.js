@@ -17,3 +17,14 @@ function cart_number_of_items()
 	}
 	return sum;
 }
+
+function cart_orders()
+{
+	var orders = '';
+	for (var i = 0; i < localStorage.length; i++)
+	{
+		order = localStorage.key(i) + '=' + localStorage.getItem(localStorage.key(i)) + ',';
+    	orders = orders + order;
+	}
+	return orders;
+}
