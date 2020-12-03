@@ -21,6 +21,28 @@ get '/about' do
 end
 
 post '/cart' do 
-  @orders = params[:orders]
+  orders = params[:orders]
+  @qwe = parse_orders(orders)
+  @products = Product.all
   erb :cart
 end
+
+def parse_orders orders
+  s1 = orders.split(/,/)
+  arr = []
+
+  s1.each do |x|
+    s2 = x.split(/=/)
+    s3 = s2[0].split(/_/)
+
+    id = s3[1]
+    count = s2[1]
+
+    arr2 = [id, count]
+
+    arr.push arr2
+  end
+
+  return arr
+end
+
