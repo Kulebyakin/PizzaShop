@@ -1,2 +1,8 @@
 leprosorium.db
 pizzashop.db
+.idea/.gitignore
+.idea/.rakeTasks
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/PizzaShop.iml
