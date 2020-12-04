@@ -38,8 +38,7 @@ post '/cart' do
 end
 
 post '/order' do
-  @o = Order.new params[:order]
-  @o.save
+  @o = Order.create params[:order]
 
   erb :order
 end
