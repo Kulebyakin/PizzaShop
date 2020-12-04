@@ -32,6 +32,10 @@ post '/cart' do
     item[0] = Product.find(item[0])
   end
 
+  if @items.length == 0
+    return erb :emptycart
+  end
+
   erb :cart
 end
 
