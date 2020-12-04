@@ -17,7 +17,13 @@ function update_orders_input()
 
 function update_orders_button() 
 {
-	var text_button = 'Cart (' + cart_number_of_items() + ')';
+	if (cart_number_of_items() > 0) 
+	{
+		var text_button = 'Cart (' + cart_number_of_items() + ')';
+	} else 
+	{
+		var text_button = 'Cart';
+	}
 	$('#orders_button').val(text_button);
 }
 
