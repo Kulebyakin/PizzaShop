@@ -46,6 +46,10 @@ post '/order' do
   erb :order
 end
 
+get '/admin' do
+  erb :admin
+end
+
 def parse_orders order_input
   s1 = order_input.split(/,/)
   arr = []
