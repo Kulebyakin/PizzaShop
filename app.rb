@@ -6,11 +6,9 @@ require 'sinatra/activerecord'
 set :database, {adapter: "sqlite3", database: "pizzashop.db"}
 
 class Product < ActiveRecord::Base
-
 end
 
 class Order < ActiveRecord::Base
-
 end
 
 
@@ -47,6 +45,8 @@ post '/order' do
 end
 
 get '/admin' do
+  @orders = Order.order(id: :DESC)
+
   erb :admin
 end
 
