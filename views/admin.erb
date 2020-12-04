@@ -1,12 +1,27 @@
 <p class="display-4">Admin panel</p>
 <h2>Our orders</h2>
 
-<% @orders.each_with_index do |o, i| %>
-	<%= o.name %>
-	<%= o.phone %>
-	<%= o.address %>
-	<%= o.order_input %>
-	<% %>
-	<% %>
-	<%= %><br>
-<% end %>
+<table class="table table-stripped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>phone</th>
+			<th>address</th>
+			<th>order_input</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @orders.each_with_index do |o, i| %>
+		<tr>
+			<td><%= i+1 %></td>
+			<td><%= o.name %></td>
+			<td><%= o.phone %></td>
+			<td><%= o.address %></td>
+
+			<td><%= o.order_input %></td>
+		</tr>
+	<% end %>
+
+</tbody>
+	</table>
