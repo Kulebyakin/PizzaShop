@@ -39,7 +39,7 @@ post '/order' do
   @o = Order.new params[:order]
   @o.save
 
-  erb 'Your order is accepted'
+  erb :order
 end
 
 def parse_orders order_input
