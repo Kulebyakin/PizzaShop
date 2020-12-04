@@ -1,62 +1,65 @@
 <p class="display-4">Your Cart</p>
-<table class="table table-stripped">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>Name</th>
-			<th>Price</th>
-			<th>Count</th>
-			<th>Qty</th>
-		</tr>
-	</thead>
-	<tbody>
-	<% total_price = 0 %>
-	<% total_count = 0 %>
-	<% total_qty = 0 %>
+<div id="cart">
+	<table class="table table-stripped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Count</th>
+				<th>Qty</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% total_price = 0 %>
+		<% total_count = 0 %>
+		<% total_qty = 0 %>
 
-	<% @items.each_with_index do |item, i| %>
-		<tr>
-			<td><%= i+1 %></td>
-			<td><%= item[0].title %></td>
-			<td><%= item[0].price.to_i %></td>
-			<td><%= item[1] %></td>
+		<% @items.each_with_index do |item, i| %>
+			<tr>
+				<td><%= i+1 %></td>
+				<td><%= item[0].title %></td>
+				<td><%= item[0].price.to_i %></td>
+				<td><%= item[1] %></td>
 
-			<td><%= item[0].price.to_i * item[1].to_i %></td>
-		</tr>
-		<% total_price = total_price + item[0].price.to_i %>
-		<% total_count = total_count + item[1].to_i %>
-		<% total_qty = total_qty + item[0].price.to_i * item[1].to_i %>
-	<% end %>
-		<tr>
-			<td></td>
-			<td><em>Total</em></td>
-			<td><em><%= total_price %></em></td>
-			<td><em><%= total_count %></em></td>
-			<td><em><%= total_qty %></em></td>
-		</tr>
-	</tbody>
-</table>
+				<td><%= item[0].price.to_i * item[1].to_i %></td>
+			</tr>
+			<% total_price = total_price + item[0].price.to_i %>
+			<% total_count = total_count + item[1].to_i %>
+			<% total_qty = total_qty + item[0].price.to_i * item[1].to_i %>
+		<% end %>
+			<tr>
+				<td></td>
+				<td><em>Total</em></td>
+				<td><em><%= total_price %></em></td>
+				<td><em><%= total_count %></em></td>
+				<td><em><%= total_qty %></em></td>
+			</tr>
+		</tbody>
+	</table>
 
 
-<form action="/order" method="POST">
+	<form action="/order" method="POST">
 
-	<input type="hidden" name="order[order_input]" value="<%= @order_input %>" />
+		<input type="hidden" name="order[order_input]" value="<%= @order_input %>" />
 
-	<div class="form-group">
-		<label>Name:</label>
-		<input type="text" name="order[name]" class="form-control" placeholder="Your name" value="">
-	</div>
+		<div class="form-group">
+			<label>Name:</label>
+			<input type="text" name="order[name]" class="form-control" placeholder="Your name" value="">
+		</div>
 
-	<div class="form-group">
-		<label>Phone:</label>
-		<input type="text" name="order[phone]" class="form-control" placeholder="Your phone" value="">
-	</div>
+		<div class="form-group">
+			<label>Phone:</label>
+			<input type="text" name="order[phone]" class="form-control" placeholder="Your phone" value="">
+		</div>
 
-	<div class="form-group">
-		<label>Address:</label>
-		<textarea name="order[address]" class="form-control" placeholder="Delivery address" value=""></textarea>
-	</div>
+		<div class="form-group">
+			<label>Address:</label>
+			<textarea name="order[address]" class="form-control" placeholder="Delivery address" value=""></textarea>
+		</div>
 
-	<button type="submit" class="btn btn-primary">Place order</button>
-	<button type="submit" class="btn btn-danger" onclick="return cancel_order()">Cancel</button>
-</form>
+		<button type="submit" class="btn btn-primary">Place order</button>
+		<button type="submit" class="btn btn-danger" onclick="return cancel_order()">Cancel</button>
+	</form>
+</div>
+
